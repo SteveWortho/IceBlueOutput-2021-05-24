@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="WordDocs\CohortReport-417b95f2-8c4c-46c9-9b50-f6060c9f89ba.docx" />
+    <None Include="WordDocs\CohortReport-417b95f2-8c4c-46c9-9b50-f6060c9f89ba.pdf" />
     <None Include="WordDocs\CohortReport.docx" />
     <None Include="WordDocs\TestBigGraphic.docx" />
   </ItemGroup>
