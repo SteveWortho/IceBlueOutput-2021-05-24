@@ -27,8 +27,9 @@ namespace IceBlueOutput_2021_05_24
 
             // Issue 02 - This image has a large graphic in it, it stretches and distorts
             ConvertToPdf("TestBigGraphic.docx");
-            
-           
+
+            // New Issue 03 - Reported 26-May-2021 (Brilliant Assessments Bug 901)
+            ConvertToPdf("Bug901.docx");
         }
 
         public static void ConvertToPdf(string sourceDocx)
