@@ -16,20 +16,14 @@ namespace IceBlueOutput_2021_05_24
 
         static void Main(string[] args)
         {
-            // Issue 01
-            // When converting List Paragrapg from this document, the Indentation 
-            // is not preserved.
-            ConvertToPdf("CohortReport-417b95f2-8c4c-46c9-9b50-f6060c9f89ba.docx");
-            // Issue 01-a
-            // But this document, which appear to be the same converts correctly
-            // What is it that Spire PDF Writer is interpretting different please?
-            ConvertToPdf("CohortReport.docx");
+            // Bug #991 - Convert to PDF
+            // Fails when all the images are in a single document set to
+            // behind text and fixed position on page
+            ConvertToPdf(@"\Bug991\AssessmentFeedbackOriginal.docx");
 
-            // Issue 02 - This image has a large graphic in it, it stretches and distorts
-            ConvertToPdf("TestBigGraphic.docx");
+            // If the images are placed on seperate pages or single pages it converts fine
+            // so it must be the table cell set to back that is causing the issue
 
-            // New Issue 03 - Reported 26-May-2021 (Brilliant Assessments Bug 901)
-            ConvertToPdf("Bug901.docx");
         }
 
         public static void ConvertToPdf(string sourceDocx)
