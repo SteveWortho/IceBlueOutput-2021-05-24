@@ -19,8 +19,12 @@ namespace IceBlueOutput_2021_05_24
             // Bug #991 - Convert to PDF
             // Fails when all the images are in a single document set to
             // behind text and fixed position on page
-            ConvertToPdf(@"\Bug991\AssessmentFeedbackOriginal.docx");
+            //ConvertToPdf(@"\Bug991\AssessmentFeedbackOriginal.docx");
 
+            // Bug #1010 - Convert to PDF gets in a loop of death
+            // Fails on latest version 9.8.6.0 of Spire
+            // Works on previous version 7.9.5.4046?
+            ConvertToPdf(@"\Bug1010\Construction_Risk_v2__20211026 2220.docx");
             // If the images are placed on seperate pages or single pages it converts fine
             // so it must be the table cell set to back that is causing the issue
 
