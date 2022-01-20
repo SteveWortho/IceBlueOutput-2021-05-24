@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Spire.Doc">
-      <HintPath>..\..\BrilliantAssessments\BrilliantAssessments.UI\lib\Spite.doc\Spire.Doc.dll</HintPath>
+    <Reference Include="Spire.Doc, Version=7.9.5.4046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BrilliantAssessments\BrilliantAssessments.UI\lib\Ice-Blue\2021-09\BIN\NET4.6\Spire.Doc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PdcDocs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Librarary\9.12.12\Spire.Doc.dll" />
+    <Content Include="Librarary\9.12.12\Spire.Doc.xml" />
+    <Content Include="Librarary\9.12.12\Spire.License.dll" />
+    <Content Include="Librarary\9.12.12\Spire.License.xml" />
+    <Content Include="Librarary\9.12.12\Spire.Pdf.dll" />
+    <Content Include="Librarary\9.12.12\Spire.Pdf.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

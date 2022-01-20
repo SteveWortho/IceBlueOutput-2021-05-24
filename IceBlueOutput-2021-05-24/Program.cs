@@ -30,7 +30,7 @@ namespace IceBlueOutput_2021_05_24
 
             // 20-Jan-2022 Bug #1050
             // Guage image does not appear in PDF but does in Word
-            ConvertToPdf(@"\Bug1050\Temp-124217d2-2032-4384-812e-6be0a41ca600.docx");
+            ConvertToPdf(@"\Bug1050\Temp-360742b4-1c46-47e6-9f19-e4701d3b952a.docx");
 
         }
 
@@ -42,6 +42,7 @@ namespace IceBlueOutput_2021_05_24
                 var asBytes = template.ToArray();
                 string fileName = $@"{AppPath}\PdfDocs\Pdf-{Guid.NewGuid()}.pdf";
                 Document document = new Document();
+                document.UseNewEngine = true;
 
                 using (MemoryStream stream = new MemoryStream())
                 {
