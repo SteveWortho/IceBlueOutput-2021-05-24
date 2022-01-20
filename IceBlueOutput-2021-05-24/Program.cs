@@ -24,26 +24,39 @@ namespace IceBlueOutput_2021_05_24
             // Bug #1010 - Convert to PDF gets in a loop of death
             // Fails on latest version 9.8.6.0 of Spire
             // Works on previous version 7.9.5.4046?
-            ConvertToPdf(@"\Bug1010\Construction_Risk_v2__20211026 2220.docx");
+            //ConvertToPdf(@"\Bug1010\Construction_Risk_v2__20211026 2220.docx");
             // If the images are placed on seperate pages or single pages it converts fine
             // so it must be the table cell set to back that is causing the issue
+
+            // 20-Jan-2022 Bug #1050
+            // Guage image does not appear in PDF but does in Word
+            ConvertToPdf(@"\Bug1050\Temp-124217d2-2032-4384-812e-6be0a41ca600.docx");
 
         }
 
         public static void ConvertToPdf(string sourceDocx)
         {
-            var template = File.ReadAllBytes($@"{AppPath}\WordDocs\{sourceDocx}");
-            var asBytes = template.ToArray();
-            string fileName = $@"{AppPath}\PdfDocs\Pdf-{Guid.NewGuid()}.pdf";
-            Document document = new Document();
-
-            using (MemoryStream stream = new MemoryStream())
+            try
             {
-                stream.Write(asBytes, 0, (int)asBytes.Length);
-                document.LoadFromStream(stream, FileFormat.Docx, XHTMLValidationType.Transitional);
+                var template = File.ReadAllBytes($@"{AppPath}\WordDocs\{sourceDocx}");
+                var asBytes = template.ToArray();
+                string fileName = $@"{AppPath}\PdfDocs\Pdf-{Guid.NewGuid()}.pdf";
+                Document document = new Document();
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    stream.Write(asBytes, 0, (int)asBytes.Length);
+                    document.LoadFromStream(stream, FileFormat.Docx, XHTMLValidationType.Transitional);
+                }
+                document.SaveToFile(fileName, FileFormat.PDF);
+                System.Diagnostics.Process.Start(fileName);
             }
-            document.SaveToFile(fileName, FileFormat.PDF);
-            System.Diagnostics.Process.Start(fileName);
+            catch (Exception exception)
+            {
+                var error = exception.Message;
+                throw;
+            }
+
         }
     }
 }
