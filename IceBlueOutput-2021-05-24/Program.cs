@@ -30,8 +30,11 @@ namespace IceBlueOutput_2021_05_24
 
             // 20-Jan-2022 Bug #1050
             // Guage image does not appear in PDF but does in Word
-            ConvertToPdf(@"\Bug1050\Temp-360742b4-1c46-47e6-9f19-e4701d3b952a.docx");
+            //ConvertToPdf(@"\Bug1050\Temp-360742b4-1c46-47e6-9f19-e4701d3b952a.docx");
 
+            // 01-Aug-2023 Bug #1493
+            // When converted to PDF the formatting is lost from the top of the page
+            ConvertToPdf(@"\Bug1493\Issue1493.docx");
         }
 
         public static void ConvertToPdf(string sourceDocx)
@@ -42,14 +45,15 @@ namespace IceBlueOutput_2021_05_24
                 var asBytes = template.ToArray();
                 string fileName = $@"{AppPath}\PdfDocs\Pdf-{Guid.NewGuid()}.pdf";
                 Document document = new Document();
-                document.UseNewEngine = true;
+             
 
                 using (MemoryStream stream = new MemoryStream())
                 {
                     stream.Write(asBytes, 0, (int)asBytes.Length);
                     document.LoadFromStream(stream, FileFormat.Docx, XHTMLValidationType.Transitional);
                 }
-                document.SaveToFile(fileName, FileFormat.PDF);
+              
+                document.SaveToFile(fileName,FileFormat.PDF);
                 System.Diagnostics.Process.Start(fileName);
             }
             catch (Exception exception)

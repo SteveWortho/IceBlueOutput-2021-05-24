@@ -33,9 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Spire.Doc, Version=7.9.5.4046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BrilliantAssessments\BrilliantAssessments.UI\lib\Ice-Blue\2021-09\BIN\NET4.6\Spire.Doc.dll</HintPath>
+    <Reference Include="Spire.Doc, Version=11.7.25.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.11.7.25\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=9.7.17.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.9.7.17\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="WordDocs\Bug1010\Construction_Risk_v2__20211026 2220.docx" />
     <None Include="WordDocs\Bug1050\Temp-360742b4-1c46-47e6-9f19-e4701d3b952a.docx" />
+    <None Include="WordDocs\Bug1493\Issue1493.docx" />
     <None Include="WordDocs\Bug991\AllImagesOnSeperatePages.docx" />
     <None Include="WordDocs\Bug991\AssessmentFeedbackOriginal.docx" />
     <None Include="WordDocs\Bug991\Page01.docx" />
@@ -64,15 +68,8 @@
     <None Include="WordDocs\Bug991\Page06.docx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Librarary\" />
     <Folder Include="PdcDocs\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Librarary\9.12.12\Spire.Doc.dll" />
-    <Content Include="Librarary\9.12.12\Spire.Doc.xml" />
-    <Content Include="Librarary\9.12.12\Spire.License.dll" />
-    <Content Include="Librarary\9.12.12\Spire.License.xml" />
-    <Content Include="Librarary\9.12.12\Spire.Pdf.dll" />
-    <Content Include="Librarary\9.12.12\Spire.Pdf.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
